@@ -1,0 +1,17 @@
+# Add to ~/.codex/config.toml (or let `codex mcp add` write it; see README).
+# Option A: credentials inline. config.toml is plain text; chmod 600 it.
+[mcp_servers.servicenow]
+command = "node"
+args = ["/absolute/path/to/LocalMCPSN/server.mjs"]
+env = { SN_URL = "https://<instance>.service-now.com", SN_USER = "mcp_local", SN_PASSWORD = "change-me" }
+startup_timeout_sec = 20   # default 10; cold Node start can exceed it
+tool_timeout_sec = 120     # default 60; keep above SN_TIMEOUT_MS and batch calls
+
+# Option B: no secrets in config.toml. The wrapper sources <repo>/.env and execs node.
+# [mcp_servers.servicenow]
+# command = "/absolute/path/to/LocalMCPSN/bin/run-with-env.sh"
+# startup_timeout_sec = 20
+# tool_timeout_sec = 120
+
+# Optional trimming for a read-only analysis project (or set SN_READ_ONLY=true in env):
+# enabled_tools = ["whoami", "query_table", "get_record", "aggregate", "batch", "describe_table", "describe_acls"]

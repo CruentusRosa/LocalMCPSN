@@ -1,0 +1,25 @@
+{
+  "name": "local-servicenow-mcp",
+  "version": "1.0.0",
+  "description": "Local MCP server over stdio that gives Codex (or any MCP client) full control of one ServiceNow instance using Basic auth.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "local-servicenow-mcp": "./server.mjs"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node test/smoke.mjs",
+    "mock": "node test/mock-instance.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.3.1",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "^2.3.1"
+  }
+}
