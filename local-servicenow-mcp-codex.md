@@ -4,6 +4,9 @@ A spec for running your own MCP server that gives OpenAI Codex (CLI and IDE exte
 of one ServiceNow instance, locally over stdio with your own credentials. No hosting, no database,
 no OAuth.
 
+**The implementation lives in this repository** (`server.mjs`, `src/`, `test/`); see `README.md` for
+setup. This document is the design behind it.
+
 This is the Codex edition of `local-servicenow-mcp.md`. The server is identical; what differs is how
 Codex is wired to it, how Codex should be told to behave around it, and a few Codex-specific traps.
 If you already built the server for Claude, skip to sections 4 and 11.
